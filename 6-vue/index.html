@@ -30,12 +30,11 @@
                         this.loading = true;
                         this.error = false;
 
-                        let self = this;
                         axios.get("https://viacep.com.br/ws/" + this.cep + "/json/")
                             .then((response) => {
                                 this.address = response.data;
                                 this.loading = false;
-                            }).catch(function(error) {
+                            }).catch((error) => {
                                 this.error = true;
                                 this.loading = false;
                             });
