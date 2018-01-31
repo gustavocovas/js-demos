@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <style>
+            div {
+                margin: 10px;
+                height: 100px;
+                width: 100px;
+                background-color: blue;
+                cursor: pointer;
+            }
+
+            div:hover {
+                background-color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <button id="myButton">Start a long synchronous task</button>
+        <div></div>
+    
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+        <script>
+            let button = document.getElementById('myButton');
+            button.addEventListener('click', async function() {
+                let address = (await axios.get("https://viacep.com.br/ws/01001000/json/")).data;
+                console.log(address);
+            });
+        </script>
+    </body>
+</html>
+
